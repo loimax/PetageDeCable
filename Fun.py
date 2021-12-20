@@ -19,7 +19,6 @@ class Famille:
 
 class Membre(Personne):
     def __init__(self, lerap):
-        super()
         user = input("Voulez vous rejoindre une famille ?\n")
         print(user)
         if (user != "Oui" or "O" or "o"):
@@ -82,8 +81,8 @@ def CreationFamille():
 
     return Fam
 
-Maxence = Personne('Blazy', 'Maxence', 20, 'Homme', 'Etudiant', 'Jeux vidéos')
-Blazouille = Membre(Maxence)
+# Maxence = Personne('Blazy', 'Maxence', 20, 'Homme', 'Etudiant', 'Jeux vidéos')
+# Blazouille = Membre(Maxence)
 
 # FamFin =  {'Stephane' : 50, 'Monique' : 49, 'Loriane' : 16, 'Adeline' : 23, 'Maxence' : 20}
 # for w in sorted(FamFin, key=FamFin.get, reverse=True):
