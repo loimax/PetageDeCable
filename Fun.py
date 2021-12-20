@@ -1,12 +1,13 @@
 #Famille1 = dict(Maxence=20, Adeline = 22, Monique = 50, Stephane = 51, Loriane = 16)
 class Personne:
-    def __init__(self, nom, prenom, age, sexe, ):
+    def __init__(self, nom, prenom, age, sexe, travail, loisirs):
         self.nom = nom
         self.prenom = prenom
         self.age = age
         self.sexe = sexe
-
-
+        self.travail = travail
+        self.loisirs = loisirs
+    
 class Famille:
     def __init__(self, FamilyName, nb_membres, NomsMembres, ages, FamilleFinale):
         self.name = FamilyName
@@ -15,23 +16,25 @@ class Famille:
         self.ages = ages
         self.FamilleFinale = FamilleFinale #un dictionnaire contenant {Key = Noms : Value = Âge}
 
-    def PasDeFamille(self):
-        return Famille('', 0, '', '', dict())
 
-class Membre():
-    def __init__(self, nom, prénom, âge, travail, loisirs):
-        self.nom = nom
-        self.prénom=prénom
-        self.âge=âge
-        self.travail=travail
-        self.loisirs=loisirs
-        self.famille = CreationFamille()
-    
+class Membre(Personne):
+    def __init__(self, lerap):
+        super()
+        user = input("Voulez vous rejoindre une famille ?\n")
+        print(user)
+        if (user != "Oui" or "O" or "o"):
+            self.famille = CreationFamille()
+        else:
+            self.famille = RejoindreFamille()
+
     def QuitterLaFamille(self, ):
         self.famille = Famille('', 0, '', '', dict())
 
     def NouvelleFamille(self):
-        pass
+        RejoindreFamille()
+
+def RejoindreFamille():
+    print("debug")
 
 def CreationFamille():
     FamilyName = input("Veuillez entrer votre nom de famille : \n")
@@ -79,7 +82,9 @@ def CreationFamille():
 
     return Fam
 
-Maxence = Personne('Blazy', 'Maxence', 20, 'Etudiant', 'Jeux vidéos')
+Maxence = Personne('Blazy', 'Maxence', 20, 'Homme', 'Etudiant', 'Jeux vidéos')
+Blazouille = Membre(Maxence)
+
 # FamFin =  {'Stephane' : 50, 'Monique' : 49, 'Loriane' : 16, 'Adeline' : 23, 'Maxence' : 20}
 # for w in sorted(FamFin, key=FamFin.get, reverse=True):
 #     FamFin.update(dict(w = FamFin[w]))
