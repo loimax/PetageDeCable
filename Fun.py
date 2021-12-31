@@ -1,4 +1,6 @@
 #Famille1 = dict(Maxence=20, Adeline = 22, Monique = 50, Stephane = 51, Loriane = 16)
+
+
 class Personne:
     def __init__(self, nom, prenom, age, sexe, travail, loisirs):
         self.nom = nom
@@ -80,6 +82,7 @@ def CreationFamille():
     print(f"\n\n\n La famille finale est donc {FamilleFinale}")
 
     return Fam
+
 
 # Maxence = Personne('Blazy', 'Maxence', 20, 'Homme', 'Etudiant', 'Jeux vidéos')
 # Blazouille = Membre(Maxence)

@@ -2,8 +2,8 @@ from Fun import Famille
 import random as r
 
 liste_de_prenom = ['Martin', 'Bernard', 'Thomas', 'Henri', 'Cedric', 'Léo', 'Léonard', 'Maxime', \
-        'Néo', 'Nathan', 'Stephane', 'Romain', 'Samuel', 'Monique', 'Adeline', 'Loriane', 'Alice', 'Mikaela', \
-            'Myriam', 'Léa', 'Marie', 'Manon', 'Hanna', 'Irma', 'Jusefs', 'Jacques', 'François', 'Yann', \
+        'Néo', 'Nathan', 'Stephane', 'Romain', 'Samuel', 'Monique', 'Adeline', 'Loriane', 'Alice', 'Jett', \
+            'Melanie', 'Léa', 'Marie', 'Manon', 'Hanna', 'Sonia', 'Jusefs', 'Jacques', 'François', 'Yann', \
                 'Marc', 'Yassine'] 
 
 #25 Prénoms
