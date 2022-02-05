@@ -85,15 +85,6 @@ class Membre(Personne):
 
 Maxence = Personne('Blazy', 'Maxence', 20, 'Homme', 'Etudiant', 'Jeux Vidéos')
 
- 
-with open('data.txt', 'r') as data:
-    test = data.readlines()
-    
-    while 1:
-        
-        print(test)
-        petard = data.readlines()
-        break
 
 """
 mettre les familles dans un fichier texte comme base de donnée ; chaque famille aura un fichier texte avec toutes les infos dedans
