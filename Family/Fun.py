@@ -1,6 +1,3 @@
-#Famille1 = dict(Maxence=20, Adeline = 22, Monique = 50, Stephane = 51, Loriane = 16)
-
-
 class Personne:
     def __init__(self, nom, prenom, age, sexe, travail, loisirs):
         self.nom = nom
@@ -9,7 +6,7 @@ class Personne:
         self.sexe = sexe
         self.travail = travail
         self.loisirs = loisirs
-    
+  
 class Famille:
     def __init__(self, FamilyName, nb_membres, NomsMembres, ages, FamilleFinale):
         self.name = FamilyName
@@ -17,22 +14,6 @@ class Famille:
         self.NomsMembres = NomsMembres
         self.ages = ages
         self.FamilleFinale = FamilleFinale #un dictionnaire contenant {Key = Noms : Value = Âge}
-
-
-class Membre(Personne):
-    def __init__(self, lerap):
-        user = input("Voulez vous rejoindre une famille ?\n")
-        print(user)
-        if (user != "Oui" or "O" or "o"):
-            self.famille = CreationFamille()
-        else:
-            self.famille = RejoindreFamille()
-
-    def QuitterLaFamille(self, ):
-        self.famille = Famille('', 0, '', '', dict())
-
-    def NouvelleFamille(self):
-        RejoindreFamille()
 
 def RejoindreFamille():
     print("debug")
@@ -83,15 +64,37 @@ def CreationFamille():
 
     return Fam
 
+class Membre(Personne):
+    def __init__(self):
+        super().__init__
 
-# Maxence = Personne('Blazy', 'Maxence', 20, 'Homme', 'Etudiant', 'Jeux vidéos')
-# Blazouille = Membre(Maxence)
+        user = input("Voulez vous créer une famille ?\n")
+        oui = ['Oui', 'o', 'oui', 'O']
+        print(user)
 
-# FamFin =  {'Stephane' : 50, 'Monique' : 49, 'Loriane' : 16, 'Adeline' : 23, 'Maxence' : 20}
-# for w in sorted(FamFin, key=FamFin.get, reverse=True):
-#     FamFin.update(dict(w = FamFin[w]))
-# #A voir comment faire, Loriane se transforme en w wtf frr
+        if (user in oui):
+            self.famille = CreationFamille()
+        else:
+            self.famille = RejoindreFamille()
 
-# Fam = Famille('Blazy', 5, ['Stephane', 'Monique', 'Loriane', 'Adeline', 'Maxence'], [50, 49, 16, 22, 20], FamFin)
-# #print(Fam.FamilleFinale)
+    def QuitterLaFamille(self, ):
+        self.famille = Famille('', 0, '', '', dict())
 
+    def NouvelleFamille(self):
+        RejoindreFamille()
+
+Maxence = Personne('Blazy', 'Maxence', 20, 'Homme', 'Etudiant', 'Jeux Vidéos')
+
+ 
+with open('data.txt', 'r') as data:
+    test = data.readlines()
+    
+    while 1:
+        
+        print(test)
+        petard = data.readlines()
+        break
+
+"""
+mettre les familles dans un fichier texte comme base de donnée ; chaque famille aura un fichier texte avec toutes les infos dedans
+"""

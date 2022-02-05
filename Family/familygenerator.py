@@ -1,4 +1,4 @@
-from Fun import Famille
+from Family.Fun import Famille
 import random as r
 
 liste_de_prenom = ['Martin', 'Bernard', 'Thomas', 'Henri', 'Cedric', 'Léo', 'Léonard', 'Maxime', \
@@ -9,7 +9,7 @@ liste_de_prenom = ['Martin', 'Bernard', 'Thomas', 'Henri', 'Cedric', 'Léo', 'L�
 #25 Prénoms
 #print("\n\n", liste_de_prenom,"\n\n")
 
-liste_de_nom = ['Blazy', 'Bonhomme', 'Atiyeh', 'Brault', 'Pineda', 'Brousse', 'Béal', 'Taussat', 'Saade', 'Portecop']
+liste_de_nom = ['Blazy', 'Bonhomme', 'Atiyeh', 'Brault', 'Pineda', 'Adarif', 'Béal', 'Taussat', 'Saade', 'Portecop']
 
 #10 Familles
 #print(liste_de_nom,"\n\n")
@@ -56,8 +56,18 @@ def GenerateTenFamilies(liste_de_prenom, liste_de_nom, liste_age, liste_nb_membr
             FamFin.update({prenoms[k] : age[k]})
             k += 1
 
+        #trie en fonction de l'âge    
+        """on prend toutes les valeurs, on les fout dans une liste qu'on sort, et on update le dictionnaire avec """
+        dictFam = []
+        
+        for w in sorted(FamFin, key=FamFin.get, reverse=True):
+            FamFin.update(dict(w = FamFin[w]))
+        del(FamFin['w'])
+
         fam = Famille(str(x), liste_nb_membres[_], prenoms, age, FamFin) 
-        print(f"\nFamille {_+1}: {FamFin}")
+        print(f"\nFamille {liste_de_nom[_]}\n{FamFin}")
         liste_de_famille.append(fam) 
 
 GenerateTenFamilies(liste_de_prenom, liste_de_nom, liste_age, liste_nb_membres)
+print("\n\n")
+#add nom de famille
