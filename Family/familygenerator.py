@@ -1,5 +1,6 @@
-from Family.Fun import Famille
 import random as r
+
+from Fun import Famille
 
 liste_de_prenom = ['Martin', 'Bernard', 'Thomas', 'Henri', 'Cedric', 'Léo', 'Léonard', 'Maxime', \
         'Néo', 'Nathan', 'Stephane', 'Romain', 'Samuel', 'Monique', 'Adeline', 'Loriane', 'Alice', 'Jett', \
@@ -24,7 +25,8 @@ liste_nb_membres = [3 for _ in range(10)]
 
 def GenerateTenFamilies(liste_de_prenom, liste_de_nom, liste_age, liste_nb_membres):
 
-    assert len(liste_de_nom) == 10 , f"""Veuillez entrer une liste de nom de taille 10 ; la taille actuelle est de \
+    assert len(liste_de_nom) == 10, \
+        f"""Veuillez entrer une liste de nom de taille 10 ; la taille actuelle est de \
 {len(liste_de_nom)}"""
 
     liste_de_famille = []
@@ -69,5 +71,5 @@ def GenerateTenFamilies(liste_de_prenom, liste_de_nom, liste_age, liste_nb_membr
         liste_de_famille.append(fam) 
 
 GenerateTenFamilies(liste_de_prenom, liste_de_nom, liste_age, liste_nb_membres)
-print("\n\n")
+print("\n")
 #add nom de famille
