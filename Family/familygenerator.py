@@ -2,7 +2,7 @@ import random as r
 
 from Fun import Famille
 
-liste_de_prenom = ['Martin', 'Bernard', 'Thomas', 'Henri', 'Cedric', 'Léo', 'Léonard', 'Maxime', \
+liste_de_prenom = ['Martin', 'Bernard', 'Thomas', 'Guillaume', 'Cedric', 'Léo', 'Léonard', 'Maxime', \
         'Néo', 'Nathan', 'Stephane', 'Romain', 'Samuel', 'Monique', 'Adeline', 'Loriane', 'Alice', 'Jett', \
             'Melanie', 'Léa', 'Marie', 'Manon', 'Hanna', 'Sonia', 'Jusefs', 'Jacques', 'François', 'Yann', \
                 'Marc', 'Yassine'] 
@@ -10,7 +10,7 @@ liste_de_prenom = ['Martin', 'Bernard', 'Thomas', 'Henri', 'Cedric', 'Léo', 'L�
 #25 Prénoms
 #print("\n\n", liste_de_prenom,"\n\n")
 
-liste_de_nom = ['Blazy', 'Bonhomme', 'Atiyeh', 'Brault', 'Pineda', 'Adarif', 'Béal', 'Taussat', 'Saade', 'Portecop']
+liste_de_nom = ['Blazy', 'Bonhomme', 'Atiyeh', 'Davy', 'Pineda', 'Adarif', 'Béal', 'Taussat', 'Saade', 'Portecop']
 
 #10 Familles
 #print(liste_de_nom,"\n\n")
@@ -29,47 +29,48 @@ def GenerateTenFamilies(liste_de_prenom, liste_de_nom, liste_age, liste_nb_membr
         f"""Veuillez entrer une liste de nom de taille 10 ; la taille actuelle est de \
 {len(liste_de_nom)}"""
 
-    liste_de_famille = []
+    with open("bdd", "w") as data:
+        liste_de_famille = []
 
-    for _ in range(10):
-        x = liste_de_nom[_]
-        prenoms = list()
-        age = list()
-        i = 0
-        j = 0
-        k = 0
-        FamFin = dict()
+        for _ in range(10):
+            x = liste_de_nom[_]
+            prenoms = list()
+            age = list()
+            i = 0
+            j = 0
+            k = 0
+            FamFin = dict()
 
-        #marche avec 30 prénoms seulement et 3 personnes par famille !
+            #marche avec 30 prénoms seulement et 3 personnes par famille !
 
-        while (i != 3):
-            rndom1 = r.randint(0, len(liste_de_prenom)-1)
-            prenoms.append(liste_de_prenom[rndom1])
-            liste_de_prenom.remove(liste_de_prenom[rndom1])
-            i += 1
+            while (i != 3):
+                rndom1 = r.randint(0, len(liste_de_prenom)-1)
+                prenoms.append(liste_de_prenom[rndom1])
+                liste_de_prenom.remove(liste_de_prenom[rndom1])
+                i += 1
 
-        while (j != 3):
-            rndom2 = r.randint(0, len(liste_age)-1)
-            age.append(liste_age[rndom2])
-            liste_age.remove(liste_age[rndom2])
-            j += 1
+            while (j != 3):
+                rndom2 = r.randint(0, len(liste_age)-1)
+                age.append(liste_age[rndom2])
+                liste_age.remove(liste_age[rndom2])
+                j += 1
 
-        while (k < 3):
-            FamFin.update({prenoms[k] : age[k]})
-            k += 1
+            while (k < 3):
+                FamFin.update({prenoms[k] : age[k]})
+                k += 1
 
-        #trie en fonction de l'âge    
-        """on prend toutes les valeurs, on les fout dans une liste qu'on sort, et on update le dictionnaire avec """
-        dictFam = []
-        
-        for w in sorted(FamFin, key=FamFin.get, reverse=True):
-            FamFin.update(dict(w = FamFin[w]))
-        del(FamFin['w'])
+            #trie en fonction de l'âge    
+            """on prend toutes les valeurs, on les fout dans une liste qu'on sort, et on update le dictionnaire avec """
+            dictFam = []
+            
+            for w in sorted(FamFin, key=FamFin.get, reverse=True):
+                FamFin.update(dict(w = FamFin[w]))
+            del(FamFin['w'])
 
-        fam = Famille(str(x), liste_nb_membres[_], prenoms, age, FamFin) 
-        print(f"\nFamille {liste_de_nom[_]}\n{FamFin}")
-        liste_de_famille.append(fam) 
+            fam = Famille(str(x), liste_nb_membres[_], prenoms, age, FamFin) 
+            data.write(f"\nFamille {liste_de_nom[_]}\n{FamFin}\n")
+            liste_de_famille.append(fam) 
 
 GenerateTenFamilies(liste_de_prenom, liste_de_nom, liste_age, liste_nb_membres)
-print("\n")
-#add nom de famille
+
+

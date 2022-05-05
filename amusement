@@ -1,0 +1,32 @@
+from itertools import count
+from operator import xor
+import time as t
+
+R = 0
+list = [7, 55, 8, 18, 10, 1, 10, 1, 8, 7, 55, 1000, 1000]
+
+# for e in list:
+#     R = R ^ e
+# print(R)
+i = 0
+while i < len(list) :
+    x = list[i]
+    print(f"\033[1;31; Var X à tester : {x}")
+    t.sleep(1)
+
+    count_doubles = 0
+    for e in list:
+        print(f"x = {x}, e = {e}\n")
+        if x == e and not count_doubles == 2 :
+            count_doubles += 1
+
+        elif count_doubles == 2 :
+            break
+
+        else :
+            continue
+        print(f"count-doubles = {count_doubles}")
+    if count_doubles == 1 :
+        break
+    i += 1
+print("\n\n",x)
