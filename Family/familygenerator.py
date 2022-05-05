@@ -68,7 +68,7 @@ def GenerateTenFamilies(liste_de_prenom, liste_de_nom, liste_age, liste_nb_membr
             del(FamFin['w'])
 
             fam = Famille(str(x), liste_nb_membres[_], prenoms, age, FamFin) 
-            data.write(f"\nFamille {liste_de_nom[_]}\n{FamFin}\n")
+            data.write(f"Famille {liste_de_nom[_]}\n{FamFin}\n")
             liste_de_famille.append(fam) 
 
 GenerateTenFamilies(liste_de_prenom, liste_de_nom, liste_age, liste_nb_membres)
