@@ -10,7 +10,7 @@ liste_de_prenom = ['Martin', 'Bernard', 'Thomas', 'Guillaume', 'Cedric', 'Léo',
 #25 Prénoms
 #print("\n\n", liste_de_prenom,"\n\n")
 
-liste_de_nom = ['Blazy', 'Bonhomme', 'Atiyeh', 'Davy', 'Pineda', 'Adarif', 'Béal', 'Taussat', 'Saade', 'Portecop']
+liste_de_nom = ['Blazy', 'Bonhomme', 'Atiyeh', 'Davy', 'Lfigp', 'Adarif', 'Béal', 'Taussat', 'Saade', 'Portecop']
 
 #10 Familles
 #print(liste_de_nom,"\n\n")
