@@ -1,7 +1,7 @@
 print("\033[0;37;40m Normal text\n")
 print("\033[2;37;40m Underlined text\033[0;37;40m \n")
 print("\033[1;37;40m Bright Colour\033[0;37;40m \n")
-print("\033[3;37;40m Negative Colour\033[0;37;40m \n")
+print("\033[3;37;40m Italic Negative Colour\033[0;37;40m \n")
 print("\033[5;37;40m Negative Colour\033[0;37;40m\n")
 print("\033[1;37;40m \033[2;37:40m TextColour BlackBackground          TextColour GreyBackground                WhiteText ColouredBackground\033[0;37;40m\n")
 print("\033[1;30;40m Dark Gray      \033[0m 1;30;40m            \033[0;30;47m Black      \033[0m 0;30;47m               \033[0;37;41m Black      \033[0m 0;37;41m")
