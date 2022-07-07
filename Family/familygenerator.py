@@ -1,15 +1,13 @@
 import random as r
-
+from colorama import Fore, Back, Style
 from Fun import Famille
 
 from time import sleep
+itérations = 0
+count = 0
+def GenerateTenFamilies(itérations, count):
 
-itérations = int(0)
-
-def GenerateTenFamilies(itérations):
-
-    while itérations < 3:
-
+    while itérations <= 3:
         liste_de_prenom = ['Martin', 'Bernard', 'Thomas', 'Guillaume', 'Cedric', 'Léo', 'Léonard', 'Maxime', \
         'Néo', 'Nathan', 'Stephane', 'Romain', 'Samuel', 'Monique', 'Adeline', 'Loriane', 'Alice', 'Jett', \
             'Melanie', 'Léa', 'Marie', 'Manon', 'Hanna', 'Sonia', 'Jusefs', 'Jacques', 'François', 'Yann', \
@@ -34,8 +32,14 @@ def GenerateTenFamilies(itérations):
         assert len(liste_de_nom) == 10, \
         f"""Veuillez entrer une liste de nom de taille 10 ; la taille actuelle est de {len(liste_de_nom)}"""
         
-        count = itérations+1 if itérations != 0 else ""
-        with open(f"bddFam/bdd{count}.md", "w") as data:
+        # count = itérations+1 if itérations != 0 else ""
+        
+        with open(f"bddFam/bdd.md", "a") as data:
+            
+            data.write(f"--------------------------------------\n")
+            data.write(f"\t\t\tGénération {count}\n")
+            print(Style.RESET_ALL)
+            data.write(f"--------------------------------------\n")
             for _ in range(10):
                 x = liste_de_nom[_]
                 prenoms = list()
@@ -71,5 +75,6 @@ def GenerateTenFamilies(itérations):
                 data.write(f"Famille {liste_de_nom[_]}\n{FamFin}\n\n")
                 liste_de_famille.append(fam) 
         itérations += 1
+        count += 1
         # sleep(5)
-GenerateTenFamilies(itérations)
+GenerateTenFamilies(0, 0)
