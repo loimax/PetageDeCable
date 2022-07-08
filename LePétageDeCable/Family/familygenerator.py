@@ -1,8 +1,11 @@
 import random as r
 from colorama import Fore, Back, Style
 from Fun import Famille
-
 from time import sleep
+
+import os
+path = os.path.abspath(__file__) #get path without file name
+
 itérations = 0
 count = 0
 def GenerateTenFamilies(itérations, count):
@@ -34,11 +37,10 @@ def GenerateTenFamilies(itérations, count):
         
         # count = itérations+1 if itérations != 0 else ""
         
-        with open(f"bddFam/bdd.md", "a") as data:
+        with open(f"{os.path.dirname(path)}/bddFam/bdd.md", "a") as data:
             
             data.write(f"--------------------------------------\n")
             data.write(f"\t\t\tGénération {count}\n")
-            print(Style.RESET_ALL)
             data.write(f"--------------------------------------\n")
             for _ in range(10):
                 x = liste_de_nom[_]
