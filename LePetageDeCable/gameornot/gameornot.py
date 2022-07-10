@@ -21,8 +21,8 @@ while True:
                 else:
                     dormir += 1
             if jouer > dormir:
-                print(f"\n\n-------------------------------------------\n\tJouer : {jouer} - Dormir : {dormir} \n\tOn joue bande de pétasses\n-------------------------------------------\n")
+                print(f"\n\n-------------------------------------------\n\t Jouer : {jouer} - Dormir : {dormir} \n\tOn joue bande de pétasses\n-------------------------------------------\n")
             else:
-                print(f"\n\n-------------------------------------------\n\tDormir : {dormir} - Jouer : {jouer} \n\tGo dormir bande de pétasses\n-------------------------------------------\n")
+                print(f"\n\n-------------------------------------------\n\t Dormir : {dormir} - Jouer : {jouer} \n\tGo dormir bande de pétasses\n-------------------------------------------\n")
             break
     
