@@ -3,7 +3,7 @@ import random
 
 e = random.randint(0, 1)
 manches = int(input("Combien de manches pour le BO ? "))
-assert manches%2 != 0, "Un BO se joue avec un nombre de manches impaires frère"
+assert manches%2 != 0, "Un BO se joue avec un nombre de manches impaire sans s frère"
 match manches:
     case 1:
         if e == 0:
