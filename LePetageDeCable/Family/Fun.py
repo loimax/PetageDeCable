@@ -164,31 +164,31 @@ class Famille:
                 data.write(f"\t{_} est agé(e) de {self.FamilleFinale.get(_)} an(s)\n")
                    
 while 1:
-    Choice = input("""\n
+    choice = int(input("""\n
     Voulez-vous :\n\t
     1. Ajouter une famille\n\t
     2. Afficher la base de donnée\n\t
     3. Générer plusieurs familles aléatoirement\n\t
     4. Afficher la base de donnée des familles générées\n\t
     5. Supprimer la base de donnée des familles générées\n\t
-    6. Quitter\n""")
-    match Choice:
-        case "1":
+    6. Quitter\n"""))
+    match choice:
+        case 1:
             fam = Famille()
             fam.toBdd()
-        case "2":
+        case 2:
             with open(f"{os.path.dirname(path)}/bddFam/bddFun.md", "r") as data:
                 print(data.read())
-        case "3":
+        case 3:
             nb_fam = int(input("Combien de familles voulez-vous générer ?\n"))
-            os.system(f"python3 {os.path.dirname(path)}/familygenerator.py")
-            time.sleep(3)
+            os.system(f"python {os.path.dirname(path)}/familygenerator.py")
             Famille(f"{os.path.dirname(path)}/bddFam/bdd.md", nb_fam)
             os.remove(f"{os.path.dirname(path)}/bddFam/bdd.md")
-        case "4":
+            break
+        case 4:
             with open(f"{os.path.dirname(path)}/bddFam/bddFunListe.md", "r") as data:
                 print(data.read())
-        case "5":
+        case 5:
             os.remove(f"{os.path.dirname(path)}/bddFam/bddFunListe.md")
-        case "6":
+        case 6:
             break
