@@ -1,6 +1,5 @@
 import random as r
 from Fun import Famille
-from time import sleep
 
 import os
 path = os.path.abspath(__file__) #get path without file name

@@ -1,4 +1,5 @@
 import os
+import time
 path = os.path.abspath(__file__) #get path without file name
 class Personne:
     def __init__(self, nom, prenom, age, sexe, travail, loisirs):
@@ -18,7 +19,7 @@ class Famille:
             self.ages = args[3]
             self.FamilleFinale = args[4] #un dictionnaire contenant {Key = Noms : Value = Âge}
         elif len(args) == 2: #full path to bdd and number of families to create from it
-            liste_famille = []
+            self.liste_famille = []
             iter = args[1]
             for _ in range(iter):
                 count = _
@@ -75,13 +76,13 @@ class Famille:
                 self.nombre_membres=len(self.NomsMembres)
                 self.FamilleFinale = dict(zip(self.NomsMembres, self.ages))
                 fam = Famille(self.name, self.nombre_membres, self.NomsMembres, self.ages, self.FamilleFinale)
-                liste_famille.append(fam)
+                self.liste_famille.append(fam)
 
             with open(f"{os.path.dirname(path)}/bddFam/bddFunListe.md", "a") as data:
-                for i in liste_famille:
-                    data.write(f"--------------------------------------\n")
+                data.write(f"--------------------------------------\n")
+                for i in self.liste_famille:
                     data.write(f"\t\t\t{i.FamilleFinale}\n")
-                    data.write(f"--------------------------------------\n")
+                data.write(f"--------------------------------------\n")
 
         else:
             FamilyName = input("Veuillez entrer votre nom de famille : \n")
@@ -156,31 +157,38 @@ class Famille:
 
     def toBdd(self):
         with open(f"{os.path.dirname(path)}/bddFam/bddFun.md", "a") as data:
-                
-                data.write(f"--------------------------------------\n")
-                data.write(f"\t\t\tFamille {self.name}\n")
-                data.write(f"--------------------------------------\n")
-                for _ in self.FamilleFinale.keys():
-                    data.write(f"\t{_} est agé(e) de {self.FamilleFinale.get(_)} an(s)\n")   
-
-    def RejoindreFamille():
-        print("debug")
-class Membre(Personne):
-    def __init__(self):
-        super().__init__
-
-        user = input("Voulez vous créer une famille ?\n")
-        oui = ['Oui', 'o', 'oui', 'O']
-        print(user)
-
-        # if (user in oui):
-        #     self.famille = CreationFamille()
-        # else:
-        #     self.famille = RejoindreFamille()
-
-    def QuitterLaFamille(self, ):
-        self.famille = Famille('', 0, '', '', dict())
-
-# Maxence = Personne('Blazy', 'Maxence', 20, 'Homme', 'Etudiant', 'Jeux Vidéos')
-
-# Blaz.toBdd()
+            data.write(f"--------------------------------------\n")
+            data.write(f"\t\t\tFamille {self.name}\n")
+            data.write(f"--------------------------------------\n")
+            for _ in self.FamilleFinale.keys():
+                data.write(f"\t{_} est agé(e) de {self.FamilleFinale.get(_)} an(s)\n")
+                   
+while 1:
+    Choice = input("""\n
+    Voulez-vous :\n\t
+    1. Ajouter une famille\n\t
+    2. Afficher la base de donnée\n\t
+    3. Générer plusieurs familles aléatoirement\n\t
+    4. Afficher la base de donnée des familles générées\n\t
+    5. Supprimer la base de donnée des familles générées\n\t
+    6. Quitter\n""")
+    match Choice:
+        case "1":
+            fam = Famille()
+            fam.toBdd()
+        case "2":
+            with open(f"{os.path.dirname(path)}/bddFam/bddFun.md", "r") as data:
+                print(data.read())
+        case "3":
+            nb_fam = int(input("Combien de familles voulez-vous générer ?\n"))
+            os.system(f"python3 {os.path.dirname(path)}/familygenerator.py")
+            time.sleep(3)
+            Famille(f"{os.path.dirname(path)}/bddFam/bdd.md", nb_fam)
+            os.remove(f"{os.path.dirname(path)}/bddFam/bdd.md")
+        case "4":
+            with open(f"{os.path.dirname(path)}/bddFam/bddFunListe.md", "r") as data:
+                print(data.read())
+        case "5":
+            os.remove(f"{os.path.dirname(path)}/bddFam/bddFunListe.md")
+        case "6":
+            break
