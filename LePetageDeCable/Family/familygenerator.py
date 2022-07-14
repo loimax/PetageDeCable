@@ -1,5 +1,4 @@
 import random as r
-from colorama import Fore, Back, Style
 from Fun import Famille
 from time import sleep
 
@@ -66,12 +65,10 @@ def GenerateTenFamilies(itérations, count):
                     k += 1
 
                 #trie en fonction de l'âge    
-                """on prend toutes les valeurs, on les fout dans une liste qu'on sort, et on update le dictionnaire avec """
-                dictFam = []
+                # """on prend toutes les valeurs, on les fout dans une liste qu'on sort, et on update le dictionnaire avec """
+                # dictFam = []
                 
-                for w in sorted(FamFin, key=FamFin.get, reverse=True):
-                    FamFin.update(dict(w = FamFin[w]))
-                del(FamFin['w'])
+                FamFin = dict(sorted(FamFin.items(), key=lambda item: item[1], reverse=True))
 
                 fam = Famille(str(x), liste_nb_membres[_], prenoms, age, FamFin) 
                 data.write(f"Famille {liste_de_nom[_]}\n{FamFin}\n\n")
