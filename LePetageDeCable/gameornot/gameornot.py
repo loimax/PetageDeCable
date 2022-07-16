@@ -16,7 +16,7 @@ match manches:
         flex = 0
         for i in range(manches):
             essai = random.randint(0, 2)
-            if jouer >= (manches / 3) or dormir >= (manches / 3) or flex >= (manches / 3):
+            if jouer >= (manches / 2) or dormir >= (manches / 2) or flex >= (manches / 2):
                 break
             if essai == 0:
                 jouer += 1
