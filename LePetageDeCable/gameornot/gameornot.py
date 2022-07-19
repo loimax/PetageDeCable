@@ -1,8 +1,9 @@
 import random
 flexing = input("On prend en compte les games en Flex ? (o/n) ")
+manches = int(input("Combien de manches pour le BO ? "))
+assert manches%2 != 0, "Un BO se joue avec un nombre de manches impaire sans s frère"
+
 if flexing == "o":
-    manches = int(input("Combien de manches pour le BO ? "))
-    assert manches%2 != 0, "Un BO se joue avec un nombre de manches impaire sans s frère"
     match manches:
         case 1:
             e = random.randint(0, 2)
@@ -64,8 +65,6 @@ if flexing == "o":
                     print(f"\n\n---------------------------------------------------\n\t Flex : {flex} - Jouer : {jouer} - Dormir : {dormir}\n\t   Go flex bande de pétasses\n---------------------------------------------------\n")
 else :
     e = random.randint(0, 1)
-    manches = int(input("Combien de manches pour le BO ? "))
-    assert manches%2 != 0, "Un BO se joue avec un nombre de manches impaire sans s frère"
     match manches:
         case 1:
             if e == 0:
